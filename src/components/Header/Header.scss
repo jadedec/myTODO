@@ -1,0 +1,31 @@
+
+
+header{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+
+    h1{
+    color:white;
+    font-size: 1.5rem;
+    top:0;
+    text-align: center;
+
+    }
+
+    .reset{
+        color:white;
+        font-size: 0.5rem;
+        min-width: 30px;
+        padding: 5px 5px;
+        border-radius: 15px;
+        background-color: white;
+        color: black;
+        border:none;
+        &:active {
+            border: 3px yellow solid;
+            outline: none;
+            }
+    }
+    
+}

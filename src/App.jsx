@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import Input from "./components/InputBox/InputBox";
 import ToDoList from "./components/ToDoList/ToDoList";
+import Header from "./components/Header/Header";
 
 
 const App = () => {
@@ -56,17 +57,19 @@ const App = () => {
       return task.id !== id;
     })
     setTasks(newTODOs);
-    console.log(tasks);
   }
 
   // TODO: click on edit, edit the task
   // const editTask = () = {
     
   // }
+  const resetTasks = () => setTasks([]);
+
 
   return (
     <>
-      <header>MY TODO</header>
+      
+      <Header reset={resetTasks} />
       <Input handleInput={handleInput} handleSubmit={handleSubmit} />
       <ToDoList array={tasks} tickTask={tickTask} deleteTask={deleteTask} />
     </>
