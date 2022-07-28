@@ -2,21 +2,32 @@ import "./TODO.scss";
 
 
 
-const TODO = ({task,index,tickTODO,deleteTODO}) => {
+const TODO = ({id,content,tickTask,editTask,deleteTask}) => {
     
     return (
         <div className="card">
-            <p className="card-task">{task.content}</p>
+            <form className="card-box">
+                <input
+                    className="card-box__checkbox"
+                    type="checkbox"
+                    onChange={tickTask}
+                />
+                <label
+                    htmlFor="task"
+                    className="card-box__task">
+                    {content}
+                </label>
+                </form>
             <div className="card-buttons">
                 <button
                     className="card-buttons__button"
-                    onClick={tickTODO}>
-                    *
+                    onClick={editTask}>
+                    EDIT
                 </button>
                 <button
                     className="card-buttons__button"
-                    onClick={deleteTODO}>
-                    delete
+                    onClick={(id)=>deleteTask(id)}>
+                    DELETE
                 </button>
             </div>
 

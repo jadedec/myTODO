@@ -7,12 +7,8 @@ import ToDoList from "./components/ToDoList/ToDoList";
 const App = () => {
 
   const [input, setInput] = useState("");
-  const [tasks, setTasks] = useState([
-    {
-      content: "test task here",
-      isDone:false
-    }
-  ]);
+  const [id, setId] = useState(0);
+  const [tasks, setTasks] = useState([]);
   
     /////////////////input box function//////////
     //pass the typing to input
@@ -24,28 +20,49 @@ const App = () => {
     //avoid page refresh
     event.preventDefault();
     input && newTask(input);
+    //TODO: empty the inputBox after submit
   }
 
   ///////////////////task list function/////////////
 
   //newTask
-  const newTask=(text)=>{
-    const obj = { content: text, isDone: false }
-    const newTODOs = [...tasks, obj]
+  const newTask = (text) => {
+    setId(id + 1);
+    const obj = { id:id, content: text, isDone: false }
+    const newTODOs = [obj,...tasks]
     setTasks(newTODOs);
     setInput("");
   }
-  //tick on TODO, set it done or undone
-  const tickTask = (index) => {
+  //tick on TODO, set it done or undone, for future filter
+  const tickTask = (id) => {
     const newTODOs = [...tasks];
-    newTODOs[index].isDone = (!newTODOs[index].isDone);
+    newTODOs.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          isDone: !task.isDone
+        }
+      } else {
+        return task;
+      }
+    })
     setTasks(newTODOs);
   }
+  
   //click on remove,remove the TODO
-  const deleteTask = (index) => {
-    const newTODOs = [...tasks].splice(index,1);
+  const deleteTask = (id) => {
+    const newTODOs = [...tasks];
+    newTODOs.filter((task) => {
+      return task.id !== id;
+    })
     setTasks(newTODOs);
+    console.log(tasks);
   }
+
+  // TODO: click on edit, edit the task
+  // const editTask = () = {
+    
+  // }
 
   return (
     <>

@@ -15,7 +15,7 @@ const Input = ({handleInput,handleSubmit}) => {
                 type="text"
                 className="new-input__text"
                 name="text"
-                placeholder="task here"
+                placeholder="new task here"
                 onChange={handleInput}
             />
             <button

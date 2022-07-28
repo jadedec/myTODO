@@ -2,15 +2,17 @@ import "./ToDoList.scss";
 import TODO from "../TODO/TODO.jsx";
 
 
-const ToDoList = ({array,tickTODO,deleteTODO}) => {
-    const cardJSX = array.map((task, index) => {
+const ToDoList = ({array,tickTask,deleteTask}) => {
+    
+    const cardJSX = array.map((task) => {
         return (
             <TODO
-                key={task+index}
-                index={index}
-                task={task}
-                tickTODO={tickTODO}
-                deleteTODO={deleteTODO}
+                key={task.id}
+                id={task.id}
+                content={task.content}
+                isDone={task.isDone}
+                tickTask={(id)=>tickTask(id)}
+                deleteTask={(id)=>deleteTask(id)}
             />
         )
     });
