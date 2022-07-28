@@ -1,0 +1,28 @@
+
+
+.card{
+    border:2px whitesmoke solid;
+    
+    &-task{
+        max-width:310px;
+        padding: 10px;
+        font-size: 1rem;
+        // border: 2px whitesmoke solid;
+        // border-radius: 15px;
+    }
+    &-buttons{
+        display: flex;
+        padding: 10px;
+        gap:20px;
+
+        &__button{
+        color:white;
+        min-width: 50px;
+        padding: 10px 10px;
+        border-radius: 15px;
+        background-color: transparent;
+        border: 1px solid white;
+        }
+        
+    }
+}

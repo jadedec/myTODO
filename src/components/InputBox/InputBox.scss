@@ -1,0 +1,38 @@
+
+
+
+.new-input{
+    padding: 10px;
+    &__label{
+        font-size: 1rem;
+        font-weight: bold;
+        line-height:1.5rem;
+        color: white;
+        padding: 0 20px;
+    }
+    &__text{
+        color: white;
+        padding: 10px;
+        font-size: 1rem;
+        border: 2px whitesmoke solid;
+        border-radius: 15px;
+        
+        &:focus {
+        border: 3px yellow solid;
+        outline: none;
+        }
+    }
+    &__button{
+        margin-left:20px;
+        color:white;
+        min-width: 50px;
+        padding: 10px 10px;
+        border-radius: 15px;
+        background-color: transparent;
+        border: 2px solid white;
+        &:focus {
+            border: 3px yellow solid;
+            outline: none;
+            }
+    }
+}
